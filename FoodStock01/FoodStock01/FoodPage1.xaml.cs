@@ -23,6 +23,7 @@ namespace FoodStock01
 
 
             InitializeComponent();
+            BindingContext = new FoodTabViewModel();
 
         }
 
