@@ -103,7 +103,7 @@
                                        VerticalOptions="End"/>
                                 </Grid>
 
-                                <Button Text="レシピ検索"
+                                <!--<Button Text="レシピ検索"
                                         BindingContext ="{Binding FoodTabViewModel}"
                                         Command="{Binding GoToRecipe}"
                                         CommandParameter="{x:Reference FoodPage}"
@@ -124,6 +124,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="レシピ検索"
+                    BindingContext ="{Binding FoodTabViewModel}"
+                    Command="{Binding GoToRecipe}"
+                    CommandParameter="{x:Reference FoodPage}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
