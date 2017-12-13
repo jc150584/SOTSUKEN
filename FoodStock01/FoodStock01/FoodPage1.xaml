@@ -112,7 +112,7 @@
                                         BindingContext ="{Binding FoodTabViewModel}"
                                         Command="{Binding GoToRecipe}"
                                         CommandParameter="{x:Reference FoodPage}"
-                                        Grid.Column="2" Grid.Row="0" />
+                                        Grid.Column="2" Grid.Row="0" />-->
                                     <!--Clicked="OnSearch_Clicked"-->
                                 <!--<toolkit:CheckBox CheckedChanged="ChackBoxChanged" 
                                                   Grid.Column="2" Grid.Row="0"
