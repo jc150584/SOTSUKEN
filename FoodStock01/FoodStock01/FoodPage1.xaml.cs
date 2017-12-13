@@ -12,18 +12,18 @@ namespace FoodStock01
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FoodPage1 : ContentPage
     {
-        public FoodPage1(string title)
+        public FoodPage1()
         {
 
             //タイトル
-            Title = title;
+            Title = "食材";
 
             //アイコン
             Icon = "apple32.png";
 
 
             InitializeComponent();
-           // BindingContext = new FoodTabViewModel();
+            BindingContext = new FoodTabViewModel();
 
         }
 

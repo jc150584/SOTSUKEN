@@ -18,7 +18,7 @@ namespace FoodStock01
             {
                 var Page = PageName as FoodPage1;
                 var ParentPage = Page.Parent as TabbedPage;
-                ParentPage.CurrentPage = ParentPage.Children[5];
+                ParentPage.CurrentPage = ParentPage.Children[1];
             });
         }
     }

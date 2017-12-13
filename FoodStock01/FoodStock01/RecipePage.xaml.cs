@@ -12,10 +12,10 @@ namespace FoodStock01
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipePage : ContentPage
     {
-        public RecipePage(string title)
+        public RecipePage()
         {
             //タイトル
-            Title = title;
+            Title = "レシピ";
 
             //アイコン
             Icon = "coffee32.png";

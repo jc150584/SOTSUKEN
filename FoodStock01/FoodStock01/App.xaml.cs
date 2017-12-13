@@ -14,16 +14,16 @@ namespace FoodStock01
         {
 
             // TabbedPageをMainPageとしてセットする
-            MainPage = new TabbedPage()
+            MainPage = new NavigationPage(new MainPage())
             {
-                Children = {
+                /*Children = {
                    new FoodPage1("食材"),
                    new StockPage("保存"),
                    new EntryPage1("登録"),
                    new MemoPage1("メモ"),
                    new SettingPage("設定"),
                    new RecipePage("レシピ")
-                }
+                }*/
             };
         }
     }
