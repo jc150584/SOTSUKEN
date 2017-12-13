@@ -30,6 +30,11 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>-->
 
+            <Button Text="レシピ検索"
+                    BindingContext ="{Binding FoodTabViewModel}"
+                    Command="{Binding GoToRecipe}"
+                    CommandParameter="{x:Reference FoodPage}" />
+            
             <Label Text="食材リスト" TextColor="DodgerBlue"
                        BackgroundColor="Transparent" />
             <!--.Column="0" Grid.Row="0"--> 
@@ -124,10 +129,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="レシピ検索"
-                    BindingContext ="{Binding FoodTabViewModel}"
-                    Command="{Binding GoToRecipe}"
-                    CommandParameter="{x:Reference FoodPage}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
