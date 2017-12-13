@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FoodStock01;assembly=FoodStock01"
              xmlns:toolkit="clr-namespace:FoodStock01;assembly=FoodStock01"
-             x:Name="FoodPage"
+             x:Name="FoodPage1"
              x:Class="FoodStock01.FoodPage1">
     
     <ContentPage.BindingContext>
@@ -35,7 +35,7 @@
 
             <Button Text="レシピ検索"
                     Command="{Binding GoToRecipe}"
-                    CommandParameter="{x:Reference FoodPage}" />
+                    CommandParameter="{x:Reference FoodPage1}" />
             <!--.Column="0" Grid.Row="0"--> 
                 <!--<StackLayout Grid.Column="1" Grid.Row="0"
                              HorizontalOptions="End"

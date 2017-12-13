@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoodStock01.RecipePage">
+             x:Class="FoodStock01.RecipePage"
+             x:Name="RecipePage">
 
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
@@ -12,12 +13,12 @@
     </ContentPage.Padding>
 
     <ContentPage.Content>
-        <StackLayout Margin="20,30,20,10">
+        <!--<StackLayout Margin="20,30,20,10">
             <Label Text="レシピ"
                    TextColor="DodgerBlue"
                    BackgroundColor="Transparent"/>
             
-            <!--<WebView x:Name="recipeView" />-->
-        </StackLayout>
+            <WebView x:Name="recipeView" />
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
