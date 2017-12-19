@@ -21,17 +21,6 @@ namespace FoodStock01
             Title = title;
 
             InitializeComponent();
-
-            RefreshCommand = new Command(async (nothing) =>
-            {   list.IsRefreshing = false;
-                Title = "食材リスト";
-                s = "http://cookpad.com/search/";
-
-                InitializeComponent();
-            },
-            // ICommand.CanExecuteにもバインドしたプロパティを利用できる
-                (nothing) => !list.IsRefreshing
-            );
         }
 
         /***試し***/
@@ -72,10 +61,18 @@ namespace FoodStock01
             InitializeComponent();
         }
 
-        public ICommand RefreshCommand
+        private async void OnRefreshing(object sender, EventArgs e)
         {
-            get;
-            private set;
+            // 2秒処理を待つ
+            await Task.Delay(2000);
+
+            //リフレッシュを止める
+            list.IsRefreshing = false;
+
+            Title = "食材リスト";
+            s = "http://cookpad.com/search/";
+
+            InitializeComponent();
         }
     }
 }
