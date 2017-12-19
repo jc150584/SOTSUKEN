@@ -33,7 +33,7 @@ namespace FoodStock01
         private async void OnRefreshing(object sender, EventArgs e)
         {
             // 2秒処理を待つ
-            await Task.Delay(2000);
+           // await Task.Delay(2000);
 
             //リフレッシュを止める
             list.IsRefreshing = false;
