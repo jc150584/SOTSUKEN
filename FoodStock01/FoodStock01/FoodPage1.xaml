@@ -53,6 +53,7 @@
             <ListView ItemsSource="{Binding Foods}"
                       IsPullToRefreshEnabled="True"
                       Refreshing="OnRefreshing"
+                      Margin="20,20,20,20"
                       x:Name="list">
                 <ListView.ItemTemplate>
                     <DataTemplate>
