@@ -13,12 +13,12 @@
         <StackLayout VerticalOptions="Start"
                      Margin="20, 10, 20, 10">
 
-            <Button Text="更新"
+            <!--<Button Text="更新"
                     x:Name="Update_Button"
                     Grid.Column="2" Grid.Row="0"
                     HorizontalOptions="End"
                     VerticalOptions="Center"
-                    Clicked="Update_Button_Clicked"/>
+                    Clicked="Update_Button_Clicked"/>-->
 
             <Grid Padding="10,20,10,20">
                 <Grid.RowDefinitions>
@@ -40,7 +40,10 @@
             </Grid>
 
             <ListView HasUnevenRows="true"
-                  ItemsSource="{Binding Stocks}">
+                      ItemsSource="{Binding Stocks}"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="OnRefreshing"
+                      x:Name="list">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

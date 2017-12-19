@@ -21,12 +21,26 @@ namespace FoodStock01
         }
 
         //更新ボタンが押された時
-        private void Update_Button_Clicked(object sender, EventArgs e)
+       /* private void Update_Button_Clicked(object sender, EventArgs e)
         {
             Title = "保存食品リスト";
 
             InitializeComponent();
 
+        }*/
+
+        //引っ張ったとき（更新）
+        private async void OnRefreshing(object sender, EventArgs e)
+        {
+            // 2秒処理を待つ
+            await Task.Delay(2000);
+
+            //リフレッシュを止める
+            list.IsRefreshing = false;
+
+            Title = "保存食品リスト";
+
+            InitializeComponent();
         }
 
         //プラスがクリックされた
