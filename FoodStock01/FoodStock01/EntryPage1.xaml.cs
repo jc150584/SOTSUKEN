@@ -5,7 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-
+using System.Runtime.InteropServices;
 
 namespace FoodStock01
 {
@@ -68,6 +68,8 @@ namespace FoodStock01
         }
         /*******↑********/
 
+
+        /***********カメラ*********************************************************/
         async void takePicture(object sender, EventArgs e)
         // from https://github.com/jamesmontemagno/MediaPlugin
         {
@@ -102,6 +104,15 @@ namespace FoodStock01
             //image.Source = ImageSource.FromFile(file.Path);
             //image.Dispose();
 
+        }
+
+        //NSData型をbyte型に変換
+        public static byte[] ToByes(this NSData data)
+        {
+            var butter = data.Bytes;
+            var bytes = new byte[data.Length];
+            Marshal.Copy(butter, bytes, 0, bytes.Length);
+            return bytes;
         }
 
         void SelectSwitch(object sender, ToggledEventArgs args)
