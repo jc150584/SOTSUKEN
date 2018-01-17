@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+
 
 namespace FoodStock01
 {
@@ -37,15 +37,28 @@ namespace FoodStock01
             //初期化
             InitializeComponent();
 
+            // ボタンが押された時の処理は、asyncメソッドの中で実行する必要があるので、
+            // XAMLの中にclickedは書けないんじゃないかと思うけどどうなんだろ
+            PictureButton.Clicked += takePicture;
+
             string imagename = Device.Idiom.ToString();
-            if (imagename.Equals("Phone")) //iphoneのとき
+
+            if (Device.OS == TargetPlatform.iOS) //iosのとき
+            {
+                if (imagename.Equals("Phone")) //iphoneのとき
+                {
+                    image.Source = "image4.jpeg";
+                }
+                else //ipadのとき
+                {
+                    image.Source = "image2.jpeg";
+                }
+            }
+            else //androidのとき
             {
                 image.Source = "image4.jpeg";
             }
-            else //ipadのとき
-            {
-                image.Source = "image2.jpeg";
-            }
+           
         }
 
         /***いらないか***/
@@ -54,6 +67,42 @@ namespace FoodStock01
 
         }
         /*******↑********/
+
+        async void takePicture(object sender, EventArgs e)
+        // from https://github.com/jamesmontemagno/MediaPlugin
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", ":( No camera available.", "OK");
+                return;
+            }
+
+            StoreCameraMediaOptions cameraOption = new StoreCameraMediaOptions
+            {
+                Directory = "Sample",
+                Name = "test.jpg"
+            };
+            var file = await CrossMedia.Current.TakePhotoAsync(cameraOption);
+
+            if (file == null)
+                return;
+
+            await DisplayAlert("File Location", file.Path, "OK");
+
+            picimage.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                file.Dispose();
+                return stream;
+            });
+
+            //or:
+            //image.Source = ImageSource.FromFile(file.Path);
+            //image.Dispose();
+
+        }
 
         void SelectSwitch(object sender, ToggledEventArgs args)
         {

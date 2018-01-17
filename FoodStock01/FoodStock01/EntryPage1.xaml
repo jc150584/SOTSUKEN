@@ -32,27 +32,47 @@
             <ScrollView>
                 <StackLayout>
                     <Grid Margin="0, 0, 0, 10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                            <Label Text="食材"
+                        <Label Text="食材"
                                HorizontalOptions="End" 
                                Grid.Column="0" Grid.Row="0" />
-                            <Switch HorizontalOptions="Center"
+                        <Switch HorizontalOptions="Center"
                                 Grid.Column="1" Grid.Row="0" 
                                 Toggled="SelectSwitch"/>
-                            <Label Text="保存食品"
+                        <Label Text="保存食品"
                                HorizontalOptions="Start" 
                                Grid.Column="2" Grid.Row="0" />
-                        </Grid>
+                    </Grid>
 
-                        <StackLayout VerticalOptions="Center"
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" Grid.Row="0"
+                             VerticalOptions="CenterAndExpand"
+                             Margin="0, 0, 0, 10">
+                            <Image x:Name="picimage"
+                                   Source="icon.png"
+                                   WidthRequest="140"/>
+                            <Button Text="写真を撮影" 
+                           x:Name="PictureButton" BorderColor="Blue" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" Grid.Row="0"
+                                 VerticalOptions="Center"
                                  Margin="0, 0, 0, 10">
                             <Label Text="食品名"/>
                             <Entry Placeholder="【食品名】入力してください"
@@ -62,8 +82,9 @@
                             <Label Text="※レシピの検索に使用します"
                                FontSize="14"/>
                         </StackLayout>
+                    </Grid>
 
-                        <StackLayout Margin="0, 0, 0, 10">
+                    <StackLayout Margin="0, 0, 0, 10">
                             <Label Text="消費期限・賞味期限（食材のみ）"/>
                             <DatePicker Format="d"
                             x:Name="FoodPicker"
