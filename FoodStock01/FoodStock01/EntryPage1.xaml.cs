@@ -100,6 +100,7 @@ namespace FoodStock01
                         {
                             DisplayAlert("期限入力エラー", "日付が現在より前のものになっています", "OK");
                         }
+                    
                         else
                         {
                             FoodModel.InsertFood(1, NameEntry.Text, result, yyyymmdd);//試し
