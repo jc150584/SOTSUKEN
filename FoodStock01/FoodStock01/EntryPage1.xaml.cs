@@ -96,10 +96,17 @@ namespace FoodStock01
                     else
                     {
                         yyyymmdd = now;
-                        FoodModel.InsertFood(1, NameEntry.Text, result, yyyymmdd);//試し
-                        DisplayAlert(NameEntry.Text + yyyymmdd.ToString("yyyy/MM/dd"), "あと" + result.ToString() + "日", "OK");
+                        if (result < 0)
+                        {
+                            DisplayAlert("期限入力エラー", "日付が現在より前のものになっています", "OK");
+                        }
+                        else
+                        {
+                            FoodModel.InsertFood(1, NameEntry.Text, result, yyyymmdd);//試し
+                            DisplayAlert(NameEntry.Text + yyyymmdd.ToString("yyyy/MM/dd"), "あと" + result.ToString() + "日", "OK");
 
-                        NameEntry.Text = "";
+                            NameEntry.Text = "";
+                        }
 
                         FoodPicker.Date = new DateTime(now.Year, now.Month, now.Day);
                     }
