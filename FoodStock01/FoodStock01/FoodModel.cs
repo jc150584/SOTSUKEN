@@ -122,7 +122,8 @@ namespace FoodStock01
 
                     setting = SettingModel.SelectSetting_Max();
 
-                    List<FoodModel> resultList = db.Query<FoodModel>("SELECT [F_result] FROM [Food] WHERE [F_result] <= " + setting);
+                    //
+                    List<FoodModel> resultList = db.Query<FoodModel>("SELECT [F_result] FROM [Food] WHERE [F_result] <= " + setting + " AND [F_result] >= 0");
 
                     int[] resultArray = new int[100];
 
@@ -136,7 +137,8 @@ namespace FoodStock01
                         i++;
                     }
 
-                    result = resultArray[0];
+                    //result = resultArray[0];
+                    result = i;
 
                     return result;
 
